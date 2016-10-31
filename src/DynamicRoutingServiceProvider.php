@@ -46,8 +46,8 @@ class DynamicRoutingServiceProvider extends ServiceProvider
         $this->app->bind('ElementsFramework\DynamicRouting\Service\Compiler\RouteDeclarationCompiler', function($app) {
             return new Service\Compiler\RouteDeclarationCompiler();
         });
-        $this->app->bind('ElementsFramework\DynamicRouting\Service\Publishing\RoutePublished', function($app) {
-            return new Service\Publishing\RoutePublished();
+        $this->app->bind('ElementsFramework\DynamicRouting\Service\Publishing\RoutePublisher', function($app) {
+            return new Service\Publishing\RoutePublisher();
         });
     }
 

@@ -25,4 +25,17 @@ class RouteClosureProviderTest extends BaseTest
         $this->assertInstanceOf(Closure::class, RouteClosureProvider::forRouteId(1));
     }
 
+    public function testForRoute()
+    {
+        $route = DynamicRoute::create([
+                    'method' => 'get',
+                    'name' => 'test',
+                    'pattern' => '/test',
+                    'handler' => 'RedirectRouteHandler',
+                    'configuration' => ['target' => '/'],
+                ]);
+
+        $this->assertInstanceOf(Closure::class, RouteClosureProvider::forRoute($route));
+    }
+
 }

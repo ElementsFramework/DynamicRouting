@@ -7,7 +7,9 @@ namespace Tests\Service;
 use Closure;
 use ElementsFramework\DynamicRouting\Model\DynamicRoute;
 use ElementsFramework\DynamicRouting\Service\RouteClosureProvider;
+use Illuminate\Http\RedirectResponse;
 use Tests\BaseTest;
+use Illuminate\Http\Request;
 
 class RouteClosureProviderTest extends BaseTest
 {
@@ -35,7 +37,7 @@ class RouteClosureProviderTest extends BaseTest
                     'configuration' => ['target' => '/'],
                 ]);
 
-        $this->assertInstanceOf(Closure::class, RouteClosureProvider::forRoute($route));
+        $this->assertInstanceOf(RedirectResponse::Class, call_user_func(RouteClosureProvider::forRoute($route), new Request()));
     }
 
 }
